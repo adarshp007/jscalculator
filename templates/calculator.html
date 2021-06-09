@@ -36,7 +36,7 @@
             <form>
             <tr>
                 <td colspan="3"><input class="form-control" type="text" value="" name="t1" id="t1" style="height:50px;background: none;color:#9fcdff;font-weight: 700;"></td>
-                <td><input type="reset" value="C"></td>
+                <td><button onclick="cl()">C</button></td>
             </tr>
                 </form>
             <tr>
@@ -125,5 +125,9 @@
     if(d==" "){
         document.getElementById("t1").value=0.
     }
+    }
+    function cl() {
+        c=0;
+        document.getElementById("t1").value=" "
     }
 </script>
