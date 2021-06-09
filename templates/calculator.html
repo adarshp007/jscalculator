@@ -33,12 +33,11 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
         <div class="col-10 col-lg-10 m-0 p-0 m-auto">
         <table class="table table-bordered text-center" style="width:80%;margin-top:45px;border:2px solid #0c5460;" align="center" cellspacing="0" cellpadding="0">
-            <form>
             <tr>
                 <td colspan="3"><input class="form-control" type="text" value="" name="t1" id="t1" style="height:50px;background: none;color:#9fcdff;font-weight: 700;"></td>
-                <td><button onclick="cl()">C</button></td>
+                <td><button onclick="clrs()">C</button></td>
             </tr>
-                </form>
+
             <tr>
                 <td><button  value="1" onclick="vl(this.value)">1</button></td>
                 <td><button  value="2" onclick="vl(this.value)">2</button></td>
@@ -126,7 +125,7 @@
         document.getElementById("t1").value=0.
     }
     }
-    function cl() {
+    function clrs() {
         c=0;
         document.getElementById("t1").value=" "
     }
