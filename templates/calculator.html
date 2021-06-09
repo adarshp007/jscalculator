@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+
+        table tr td button,input[type="reset"] {
+            width: 80px;
+            height: 50px;
+            font-weight: 600;
+            padding: 0;
+            margin: 0;
+            color: #007bff;
+            background-color: #292b2c   ;
+        }
+        tr,td{
+            border: 2px solid #0c5460;
+        }
+
+    </style>
+</head>
+<body class="m-0 p-0 bg-dark">
+<div class="container bg-info " >
+    <div class="row justify-content-center col-sm-12">
+        <h1>Calculator</h1>
+    </div>
+    <div class="row justify-content-center bg-dark" >
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+        <div class="col-10 col-lg-10 m-0 p-0 m-auto">
+        <table class="table table-bordered text-center" style="width:80%;margin-top:45px;border:2px solid #0c5460;" align="center" cellspacing="0" cellpadding="0">
+            <form>
+            <tr>
+                <td colspan="3"><input class="form-control" type="text" value="" name="t1" id="t1" style="height:50px;background: none;color:#9fcdff;font-weight: 700;"></td>
+                <td><input type="reset" value="C"></td>
+            </tr>
+                </form>
+            <tr>
+                <td><button  value="1" onclick="vl(this.value)">1</button></td>
+                <td><button  value="2" onclick="vl(this.value)">2</button></td>
+                <td><button value="3" onclick="vl(this.value)">3</button></td>
+                <td><button value="+" onclick="op(this.value)">+</button></td>
+            </tr>
+            <tr>
+                <td><button value="4" onclick="vl(this.value)">4</button></td>
+                <td><button value="5" onclick="vl(this.value)">5</button></td>
+                <td><button value="6" onclick="vl(this.value)">6</button></td>
+                <td><button value="-" onclick="op(this.value)">-</button></td>
+            </tr>
+            <tr>
+                <td><button value="7" onclick="vl(this.value)">7</button></td>
+                <td><button value="8" onclick="vl(this.value)">8</button></td>
+                <td><button value="9" onclick="vl(this.value)">9</button></td>
+                <td><button value="x" onclick="op(this.value)">x</button></td>
+            </tr>
+            <tr>
+                <td><button value="0" onclick="vl(this.value)">0</button></td>
+                <td><button value="." onclick="dt(this.value)">.</button></td>
+                <td><button onclick="op(this.value)">%</button></td>
+                <td><button onclick="op(this.value)">/</button></td>
+            </tr>
+            <tr>
+                <td colspan="4" onclick="calc()"><button class="w-100" style="font-size: larger;">=</button></td>
+            </tr>
+
+
+        </table>
+            </div>
+    </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+    var num1;
+    var num2;
+    var ot;
+    var result;
+    var c=0;
+    function vl(v) {
+        document.getElementById("t1").value +=v
+    }
+    function op(a) {
+        ot=a
+        c=0;
+        num1=Number(document.getElementById("t1").value)
+        document.getElementById("t1").value=" "
+    }
+    function calc() {
+        num2=Number(document.getElementById("t1").value)
+        if(ot=="+"){
+            document.getElementById("t1").value=num1+num2
+        }
+        if(ot=="-"){
+            document.getElementById("t1").value=num1-num2
+        }
+        if(ot=="x"){
+            document.getElementById("t1").value=num1*num2
+        }
+        if(ot=="/"){
+            document.getElementById("t1").value=num1/num2
+        }
+        if(ot=="%"){
+            document.getElementById("t1").value=num1%num2
+        }
+
+        console.log(num1)
+        num2=document.getElementById("t1").value
+        console.log(num2)
+    }
+    function dt(d) {
+        c=c+1
+    if(c<=1){
+        document.getElementById("t1").value +=d
+    }
+    if(d==" "){
+        document.getElementById("t1").value=0.
+    }
+    }
+</script>
